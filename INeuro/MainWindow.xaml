@@ -1,0 +1,38 @@
+﻿<Window x:Class="INeuro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:INeuro"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="477" Width="479">
+    <Grid>
+        <Button x:Name="LoadImage" Content="Загрузить" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="90" Click="LoadImage_Click" Background="#FFF2F2F2" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" Height="26"/>
+        <Grid HorizontalAlignment="Left" Height="374" Margin="10,10,0,0" VerticalAlignment="Top" Width="451" Background="#FFC6EAC0">
+            <TextBox x:Name="neuronAnswerTextBox" HorizontalAlignment="Center" Height="24" Margin="226,0,55,9" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="170" Foreground="#FF1A1A1A"/>
+            <ListBox x:Name="ConsoleListBox" HorizontalAlignment="Left" Height="323" Margin="10,10,0,0" VerticalAlignment="Top" Width="431">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5" Width="200">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} : {1}">
+                                        <Binding Path="Id" UpdateSourceTrigger="PropertyChanged"></Binding>
+                                        <Binding Path="Text" UpdateSourceTrigger="PropertyChanged"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button x:Name="AcceptTrueAnswer" Content="Ок" HorizontalAlignment="Left" Margin="401,341,0,0" VerticalAlignment="Top" Width="40" Foreground="#FF2E2E2E" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="#FFACDEA0" Height="24" Click="AcceptTrueAnswer_Click"/>
+        </Grid>
+        <Button x:Name="HandleImage" Content="Обработать" HorizontalAlignment="Left" Margin="105,0,0,10" VerticalAlignment="Bottom" Width="90" Click="HandleImage_Click" Background="#FFF2F2F2" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" Height="26"/>
+        <Grid x:Name="answerGrid" HorizontalAlignment="Left" Height="47" Margin="261,392,0,0" VerticalAlignment="Top" Width="200" Background="#FFC6EAC0">
+            <Button x:Name="HandleYes" Content="Да" HorizontalAlignment="Left" Margin="10,0,0,0" Width="80" Click="Handle_Click" Background="#FFACDEA0" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" FontFamily="Segoe UI Semibold" Height="26"/>
+            <Button x:Name="HandleNo" Content="Нет" HorizontalAlignment="Right" Margin="0,0,10,0" Width="80" Click="Handle_Click" Background="#FFACDEA0" BorderBrush="{x:Null}" Foreground="#FF2E2E2E" FontFamily="Segoe UI Semibold" Height="26"/>
+        </Grid>
+
+    </Grid>
+</Window>
